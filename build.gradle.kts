@@ -17,6 +17,7 @@ buildscript {
   dependencies {
     classpath(libs.gradlePlugin.android)
     classpath(libs.gradlePlugin.kotlin)
+    classpath(libs.gradlePlugin.composeCompiler)
     classpath(libs.gradlePlugin.dokka)
     classpath(libs.gradlePlugin.mavenPublish)
     classpath(libs.gradlePlugin.detekt)

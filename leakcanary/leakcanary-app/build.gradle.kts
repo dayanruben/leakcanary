@@ -3,6 +3,7 @@ import java.io.InputStreamReader
 plugins {
   id("com.android.application")
   id("org.jetbrains.kotlin.android")
+  id("org.jetbrains.kotlin.plugin.compose")
   id("app.cash.sqldelight")
   id("com.google.dagger.hilt.android")
   id("kotlin-kapt")
@@ -55,10 +56,6 @@ android {
 
   buildFeatures {
     compose = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = "1.4.7"
   }
 
   packaging {
