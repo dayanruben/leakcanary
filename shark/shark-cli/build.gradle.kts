@@ -1,5 +1,6 @@
 import java.util.Properties
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
   id("org.jetbrains.kotlin.jvm")
@@ -14,8 +15,10 @@ java {
 
 // Workaround for https://stackoverflow.com/questions/48988778
 // /cannot-inline-bytecode-built-with-jvm-target-1-8-into-bytecode-that-is-being-bui
-tasks.withType<KotlinCompile> {
-  kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+tasks.withType<KotlinJvmCompile>().configureEach {
+  compilerOptions {
+    jvmTarget.set(JvmTarget.JVM_1_8)
+  }
 }
 
 dependencies {
@@ -53,4 +56,3 @@ tasks.register("generateVersionProperties") {
 tasks.named("processResources") {
   dependsOn("generateVersionProperties")
 }
-
